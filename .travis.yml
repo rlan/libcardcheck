@@ -1,6 +1,10 @@
 language: cpp
 compiler: gcc
-before_install: sudo apt-get install libboost-dev
+addons:
+  apt:
+    sources:
+    - boost-latest
+    - autoconf-archive
 before_script:
 - autoconf --version
 - autoreconf --version
