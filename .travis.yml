@@ -7,8 +7,8 @@ addons:
     - boost-latest
     packages:
     - automake
-    - gcc-4.8
-    - g++-4.8
+    - gcc
+    - g++
     - libboost-all-dev
     - autoconf-archive
 before_script:
@@ -16,3 +16,4 @@ before_script:
 - autoreconf --version
 - automake --version
 script: ./bootstrap && ./configure && make && make check
+after_failure: cat ./configure
