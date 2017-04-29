@@ -7,8 +7,8 @@ addons:
     - boost-latest
     packages:
     - automake
-    - gcc
-    - g++
+    - gcc-4.8
+    - g++-4.8
     - libboost-all-dev
     - autoconf-archive
 before_script:
