@@ -13,6 +13,8 @@ addons:
     - g++-4.8
     - libboost-all-dev
     - autoconf-archive
+install:
+- if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
 before_script:
 - autoconf --version
 - autoreconf --version
