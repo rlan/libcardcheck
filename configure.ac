@@ -23,7 +23,7 @@ AX_BOOST_UNIT_TEST_FRAMEWORK
 
 # Checks for typedefs, structures, and compiler characteristics.
 #AX_CXX_COMPILE_STDCXX_11(,mandatory)
-#AX_CXX_COMPILE_STDCXX([11], [], [mandatory])
+AX_CXX_COMPILE_STDCXX([11], [], [mandatory])
 
 # Checks for library functions.
 
