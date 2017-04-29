@@ -1,0 +1,10 @@
+dependencies:
+    pre:
+        - sudo apt-get install autoconf-archive libboost-dev
+test:
+    pre:
+        - ./boostrap
+        - ./configure
+        - make
+    override:
+        - make check
