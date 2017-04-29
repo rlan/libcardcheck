@@ -1,5 +1,7 @@
 language: cpp
 compiler: g++
+cache:
+  apt: true
 addons:
   apt:
     sources:
@@ -15,5 +17,7 @@ before_script:
 - autoconf --version
 - autoreconf --version
 - automake --version
+- gcc --version
+- g++ --version
 script: ./bootstrap && ./configure && make && make check
 after_failure: cat ./configure
