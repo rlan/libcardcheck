@@ -15,7 +15,7 @@ AC_PROG_CC
 # Checks for libraries.
 # Checks for Boost libraries. Other macros:
 # https://www.gnu.org/software/autoconf-archive/The-Macros.html#The-Macros
-AX_BOOST_BASE([1.42], [], [AC_MSG_ERROR([This program needs Boost, but it was not found in your system])])
+AX_BOOST_BASE([1.42], [], AC_MSG_ERROR([This program needs Boost, but it was not found in your system]))
 AX_BOOST_SYSTEM
 AX_BOOST_UNIT_TEST_FRAMEWORK
 
