@@ -1,6 +1,6 @@
 dependencies:
     pre:
-        - sudo apt-get install autoconf-archive libboost-dev
+        - sudo apt-get install autoconf-archive libboost-dev pkg-config
 test:
     pre:
         - ./boostrap
