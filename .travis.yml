@@ -17,10 +17,30 @@ matrix:
       env:
          - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
 
-script: ./bootstrap && ./configure && make && make check
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - boost-latest
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.6
+          packages:
+            - autoconf-archive
+            - automake
+            - clang-3.6
+            - libboost-all-dev
+      env:
+        - MATRIX_EVAL="CC=clang-3.6 && CXX=clang++-3.6"
 
 before_install:
   - eval "${MATRIX_EVAL}"
+
+script:
+  - ./bootstrap
+  - ./configure
+  - make
+  - make check
 
 after_failure:
   - cat ./configure
