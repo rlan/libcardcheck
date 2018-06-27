@@ -1,11 +1,11 @@
+#define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MODULE card_check_test
 #include <boost/test/included/unit_test.hpp>
 #include <boost/test/data/test_case.hpp>
 #include <boost/test/data/monomorphic.hpp>
+namespace bdata = boost::unit_test::data;
 
 #include "card_check.hpp"
-
-namespace bdata = boost::unit_test::data;
 
 
 BOOST_AUTO_TEST_SUITE( suite_luhn )

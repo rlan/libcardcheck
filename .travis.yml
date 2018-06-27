@@ -7,22 +7,20 @@ matrix:
       addons:
         apt:
           sources:
-            - boost-latest
             - ubuntu-toolchain-r-test
           packages:
             - autoconf-archive
             - automake
-            - g++-4.9
+            - g++-5
             - libboost-all-dev
       env:
-         - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
+        - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
 
     # works on Precise and Trusty
     - os: linux
       addons:
         apt:
           sources:
-            - boost-latest
             - ubuntu-toolchain-r-test
             - llvm-toolchain-precise-3.6
           packages:
@@ -47,5 +45,3 @@ after_failure:
   - autoconf --version
   - autoreconf --version
   - automake --version
-  - gcc --version
-  - g++ --version
