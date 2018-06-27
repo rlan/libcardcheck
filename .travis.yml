@@ -1,25 +1,31 @@
 language: cpp
-compiler: g++
-cache:
-  apt: true
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    - boost-latest
-    packages:
-    - automake
-    - gcc-4.8
-    - g++-4.8
-    - libboost-all-dev
-    - autoconf-archive
-install:
-- if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
-before_script:
-- autoconf --version
-- autoreconf --version
-- automake --version
-- gcc --version
-- g++ --version
+
+matrix:
+  include:
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - boost-latest
+            - ubuntu-toolchain-r-test
+          packages:
+            - autoconf-archive
+            - automake
+            - g++-4.9
+            - libboost-all-dev
+      env:
+         - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
+
 script: ./bootstrap && ./configure && make && make check
-after_failure: cat ./configure
+
+before_install:
+  - eval "${MATRIX_EVAL}"
+
+after_failure:
+  - cat ./configure
+  - autoconf --version
+  - autoreconf --version
+  - automake --version
+  - gcc --version
+  - g++ --version
