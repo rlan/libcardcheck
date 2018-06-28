@@ -1,4 +1,4 @@
-Card Checker [![Build Status](https://travis-ci.org/rlan/libcardcheck.svg?branch=master)](https://travis-ci.org/rlan/libcardcheck)
+Card Checker
 ============
 
 A payment/credit card number checker. A C++ library.
